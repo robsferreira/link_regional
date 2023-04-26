@@ -1,0 +1,25 @@
+.header-menu{
+    background-color: #b317a6;
+    color: #fff;
+    font-size: 18px;
+}
+
+.espaco-topo {
+    margin-top: 10px;
+    color: #d205c1;
+}
+
+.logo-small {
+    color: #b317a6;
+    font-size: 50px;
+}
+
+.logo {
+    color: #b317a6;
+    font-size: 200px;
+}
+
+img {
+    width: auto;
+    height: 120px;
+}
