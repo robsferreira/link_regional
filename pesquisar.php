@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    include_once("conexao.php");
+    include_once "conexao.php";
 ?>
 
 <!DOCTYPE html>
@@ -58,71 +57,30 @@
 </nav>
 
     <!-- Fim Menu -->
-    <h1>Lista de Cliente</h1>
+    <h1>Pesquisa Cliente</h1>
+
+    <form method="POST" action="">
+        <label>Nome: </label>
+        <input type="text" name="nome" placeholder="Digite o nome"><br /><br />
+      
+        <input name="SendPesqClient" type="submit" value="Pesquisar">
+    </form><br /><br />
 
     <?php
-        if(isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        } 
-
-        // Receber o número da página
-
-        $pagina_atual = filter_input (INPUT_GET, 'pagina',
-        FILTER_SANITIZE_NUMBER_INT);
-        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-
-        // Setar a quantidade de itens por pagina
-
-        $qnt_result_pg = 3;
-
-        // Calcular o inicio visualização
-
-        $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-
-        $result_clientes = "SELECT * FROM cliente LIMIT $inicio, $qnt_result_pg";
-        $resultado_clientes = mysqli_query($conn, $result_clientes);
-        while($row_clientes = mysqli_fetch_assoc($resultado_clientes)) {
-            echo "ID: " . $row_clientes['id'] . "<br/>";
-            echo "Nome: " . $row_clientes['nome'] . "<br/>";
-            echo "Nome da Empresa: " . $row_clientes['nempresa'] . "<br/>";
-            echo "Contato: " . $row_clientes['contato'] . "<br/>";
-            echo "Categoria: " . $row_clientes['categoria'] . "<br/>";
-            echo "Classificação: " . $row_clientes['classificacao'] . "<br/>";
-            echo "<a href='edit_cliente.php?id=" . $row_clientes['id'] . "'>Editar</a><br/>";
-            echo "<a href='proc_apagar_cliente.php?id=" . $row_clientes['id'] . "'>Apagar</a><br/><hr>";
-        }   
-
-    // Paginação - Somar a quantidade de Clientes
-
-    $result_pg = "SELECT COUNT(id) AS num_result FROM cliente";
-    $resultado_pg = mysqli_query($conn, $result_pg);
-    $row_pg = mysqli_fetch_assoc($resultado_pg);
-    //echo $row_pg['num_result'];
-
-    // Quantidade de paginas
-
-    $quantidade_pg = ceil($row_pg['num_result']  /  $qnt_result_pg);
-
-    // Limitar os Links Antes e Depois
-    $max_links = 2;
-    echo " <a href='listar.php?pagina=1'>Primeira</a> ";
-
-    for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant ++) {
-        if($pag_ant >= 1) {
-            echo " <a href='listar.php?pagina=$pag_ant'>$pag_ant</a> ";
+      $SendPesqClient = filter_input(INPUT_POST, 'SendPesqClient', FILTER_SANITIZE_STRING);
+      if($SendPesqClient) {
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+        $result_cliente = "SELECT * FROM cliente WHERE nome LIKE '%$nome%'";
+        $resultado_cliente = mysqli_query($conn, $result_cliente);
+        while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) {
+          echo "ID: " . $row_cliente['id'] . "<br>";
+          echo "Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
+          echo "Contato: " . $row_cliente['contato'] . "<br>";
+          
+          echo "<a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
+          echo "<a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
         }
-    }
-    
-    echo " $pagina ";
-
-    for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep ++) {
-        if($pag_dep <= $quantidade_pg) {
-            echo " <a href='listar.php?pagina=$pag_dep'>$pag_dep</a> ";
-        }
-    }
-    
-    echo " <a href='listar.php?pagina=$quantidade_pg'>Ultima</a> ";    
+      }
     ?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
