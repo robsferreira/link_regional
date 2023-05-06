@@ -76,6 +76,7 @@
           echo "ID: " . $row_cliente['id'] . "<br>";
           echo "Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
           echo "Contato: " . $row_cliente['contato'] . "<br>";
+          echo "Classificação: " . $row_cliente['classificacao'] . "<br>";
           
           echo "<a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
           echo "<a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
