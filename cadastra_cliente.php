@@ -68,22 +68,22 @@
 
     <form method="POST" action="processa.php">
         <label>Nome: </label>
-        <input type="text" name="nome" placeholder="Digite o nome completo"><br /><br />
+        <input type="text" name="nome" placeholder="Digite o nome completo" required><br /><br />
 
         <label>Nome da Empresa: </label>
-        <input type="text" name="nempresa" placeholder="Digite o nome da Empresa"><br /><br />
+        <input type="text" name="nempresa" placeholder="Digite o nome da Empresa" required><br /><br />
 
         <label>CPF: </label>
-        <input type="text" name="cpf" placeholder="Digite o CPF"><br /><br />
+        <input type="text" name="cpf" placeholder="Digite o CPF" required><br /><br />
         
         <label>E-mail: </label>
-        <input type="text" name="email" placeholder="Digite o seu melhor E-mail"><br /><br />
+        <input type="text" name="email" placeholder="Digite o seu melhor E-mail" required><br /><br />
 
         <label>Site: </label>
         <input type="text" name="site" placeholder="Tem Site? Coloca o endereço"><br /><br />
 
         <label>Contato: </label>
-        <input type="text" name="contato" placeholder="Digite o seu contato"><br /><br />
+        <input type="text" name="contato" placeholder="Digite o seu contato" required><br /><br />
 
         <label>Endereço: </label>
         <input type="text" name="endereco" placeholder="Digite seu endereço"><br /><br />
