@@ -69,14 +69,13 @@
     <?php
       $SendPesqClient = filter_input(INPUT_POST, 'SendPesqClient', FILTER_SANITIZE_STRING);
       if($SendPesqClient) {
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-        $result_cliente = "SELECT * FROM cliente WHERE nome LIKE '%$nome%'";
+        $nempresa = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+        $result_cliente = "SELECT * FROM cliente WHERE nempresa LIKE '%$nempresa%'";
         $resultado_cliente = mysqli_query($conn, $result_cliente);
         while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) {
           echo "ID: " . $row_cliente['id'] . "<br>";
           echo "Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
           echo "Contato: " . $row_cliente['contato'] . "<br>";
-          echo "Classificação: " . $row_cliente['classificacao'] . "<br>";
           
           echo "<a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
           echo "<a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
