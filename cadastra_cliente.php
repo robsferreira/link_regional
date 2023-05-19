@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<a class="navbar-brand" href="#"><img src="imagens/logo-site.png" alt="Link Regional" width="30" height="24"></a>
+<a class="navbar-brand" href="#">Link Regional</a>
   
   <!--
   <a class="navbar-brand" href="#">Navbar</a>
@@ -35,15 +35,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contato</a>
       </li>
-      <li class="nav-item dropdown">
+     <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="cadastra_cliente.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Área Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="cadastra_cliente">Cadastra Novo Cliente</a>
+          <a class="dropdown-item" href="cadastra_cliente.php">Cadastra Novo Cliente</a>
           <a class="dropdown-item" href="listar.php">Lista de Clientes</a>
-      <!--<a class="dropdown-item" href="listar.php">Listar Clientes</a> -->
-        </div>
+      <a class="dropdown-item" href="listar.php">Listar Clientes</a> 
+        </div>-->
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="pesquisar.php">Pesquisar</a>
@@ -57,55 +57,33 @@
 </nav>
 
     <!-- Fim Menu -->
-    <h1>Cadastro de Novo Cliente</h1>
+    <h1>Cadastro de usuário</h1>
 
     <?php
         if(isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
+            echo"<div class='alert alert-info' role='alert'>".$_SESSION['msg']." <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+  </button></div>";
             unset($_SESSION['msg']);
         }    
     ?>
 
-    <form method="POST" action="processa.php">
+    <form method="post" action="processa_cliente.php">
         <label>Nome: </label>
-        <input type="text" name="nome" placeholder="Digite o nome completo" required><br /><br />
+        <input type="text" name="nome" placeholder="Digite o nome completo" ><br /><br />
 
-        <label>Nome da Empresa: </label>
-        <input type="text" name="nempresa" placeholder="Digite o nome da Empresa" required><br /><br />
-
-        <label>CPF: </label>
-        <input type="text" name="cpf" placeholder="Digite o CPF" required><br /><br />
-        
         <label>E-mail: </label>
-        <input type="text" name="email" placeholder="Digite o seu melhor E-mail" required><br /><br />
+        <input type="email" name="email" placeholder="Digite o seu melhor E-mail" ><br /><br />
 
-        <label>Site: </label>
-        <input type="text" name="site" placeholder="Tem Site? Coloca o endereço"><br /><br />
-
-        <label>Contato: </label>
-        <input type="text" name="contato" placeholder="Digite o seu contato" required><br /><br />
-
-        <label>Endereço: </label>
-        <input type="text" name="endereco" placeholder="Digite seu endereço"><br /><br />
-
-        <label>Cidade: </label>
-        <input type="text" name="cidade" placeholder="Informe a sua Cidade"><br /><br />
-
-        <label>Estado: </label>
-        <input type="text" name="estado" placeholder="Informe o seu Estado"><br /><br />
-
-        <label>Categoria: </label>
-        <input type="text" name="categoria" placeholder="Digite a categoria do Serviço ex: Serviço"><br /><br />
-        
-        <label>Classificação: </label>
-        <input type="text" name="classificacao" placeholder="Digite uma pontuação ex:0.0 até 10.0"><br /><br />
+        <label>Senha: </label>
+        <input type="password" name="senha" placeholder="Crie uma senha" ><br /><br />
 
         <!-- 
         <label>Nome da imagem do Cartão: </label>
         <input type="text" name="imagem_cartao" placeholder="Nome do arquivo da imagem Formato jpg"><br /><br />
         -->
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="cadastrar" name="btnCadUsuario"><br><br>
+        <h4>Já possui uma conta? Faça login <a href="login.php">aqui.</a></h4>
     </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

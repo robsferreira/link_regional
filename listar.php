@@ -41,7 +41,7 @@
           Área Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="cadastra_cliente">Cadastra Novo Cliente</a>
+          <a class="dropdown-item" href="cadastra_cliente.php">Cadastra Novo Cliente</a>
           <a class="dropdown-item" href="listar.php">Lista de Clientes</a>
       <!--<a class="dropdown-item" href="listar.php">Listar Clientes</a> -->
         </div>

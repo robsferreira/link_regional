@@ -11,5 +11,4 @@ $dbname = "linkregional";
                             $senha,
                             $dbname
                             );
-
 ?>

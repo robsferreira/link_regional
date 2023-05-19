@@ -3,7 +3,9 @@
     color: #fff;
     font-size: 18px;
 }
-
+.personalizedsize{
+    padding: 16px;
+}
 .espaco-topo {
     margin-top: 10px;
     color: #d205c1;
@@ -22,4 +24,25 @@
 img {
     width: auto;
     height: 120px;
+}
+.brand_link{
+    position: absolute !important;
+    left:70px;
+    top: 18px;
+}
+.prof_picture_nav{
+    position: absolute;
+    top: 10px;
+    right:20px;
+    list-style: none;
+}
+.prof_picture_nav img{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+.options_menu{
+    position: absolute;
+    right: 60px;
+    border-radius: 10px;
 }
