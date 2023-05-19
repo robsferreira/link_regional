@@ -21,3 +21,4 @@ DISCIPLINA | Seminário Interdisciplinar: Implementação de uma Aplicação WEB
   ## 📧 Contato dos Academicos
 
   robsferreira@gmail.com
+  gmartinspinheiro2003@gmail.com
