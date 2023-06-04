@@ -57,7 +57,7 @@
 
     <!-- Fim Menu -->
     <!-- Inicio Carrossel -->
-    <main>
+
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
 
     <div id="carouselExampleIndicators" class="carousel slide">
@@ -100,7 +100,8 @@
         }
           
       }
-    ?> 
+    ?>
+    
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -110,7 +111,6 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-</main>
 
     <!-- Fim Carrossel -->
 
@@ -130,12 +130,12 @@
         $result_cliente = "SELECT * FROM cliente WHERE nempresa LIKE '%$nempresa%'";
         $resultado_cliente = mysqli_query($conn, $result_cliente);
         while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) {
-          echo "########->ID: " . $row_cliente['id'] . "<br>";
-          echo "########->Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
-          echo "########->Contato: " . $row_cliente['contato'] . "<br>";
+          echo "ID: " . $row_cliente['id'] . "<br>";
+          echo "Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
+          echo "Contato: " . $row_cliente['contato'] . "<br>";
           
-          echo "########-><a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
-          echo "########-><a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
+          echo "<a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
+          echo "<a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
         }
       }
     ?>
