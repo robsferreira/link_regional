@@ -1,0 +1,246 @@
+body {
+    background-color: #1A1E22;
+    color: lightgray;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.header-menu{
+    background-color: #b317a6;
+    color: #fff;
+    font-size: 18px;
+}
+
+.espaco-topo {
+    margin-top: 10px;
+    color: #d205c1;
+}
+
+.logo-small {
+    color: #b317a6;
+    font-size: 50px;
+}
+
+.logo {
+    color: #b317a6;
+    font-size: 200px;
+}
+
+img {
+    width: auto;
+    height: 120px;
+}
+
+#clientes {
+    width: auto;
+    margin-bottom: 30px;
+    display: flex;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#cliente {
+    background-color: #141419;
+    width: 650px;
+    padding: 1.5em;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, purple, yellow);
+    margin: 30px;
+}
+
+#button {
+    display: flex;
+}
+
+#paginas{
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    margin-top: 80px;
+    height: 50px;
+    text-decoration: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: lightgray;
+}
+
+button {
+    color: lightgray;
+    background-color: rgb(43, 43, 40);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+button:hover{
+    color: gray;
+    background-color:#141419;
+}
+
+.btnPagina {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(43, 43, 40);
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.btnPagina:hover {
+    color: gray;
+    background-color:#141419;
+}
+
+.numPagina {
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: rgb(43, 43, 40);
+    border-radius: 0.2em;
+    font-weight: bold;
+    height: 40px;
+    margin-top: 5px;
+}
+
+
+.numPagina:hover {
+    color: gray;
+    background-color:#141419;
+}
+
+.buttonStyle {
+    background-color: rgb(43, 43, 40);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+
+.buttonStyle:hover {
+    color: gray;
+    background-color:#080808;
+}
+
+h1{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#formulario {
+    width: 650px;
+    margin-bottom: 30px;
+    display: flex;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, purple, yellow);
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+}
+
+.title_contato {
+    font-family: 'open_sansregular';
+    font-weight: 600;
+    font-size:4em;
+    color: #fff;
+    text-align: left;
+    margin-bottom:20px;
+}
+
+.style-form-input {
+    width: 295px;
+    margin: 1em 0;
+    position: relative;
+    border-radius: 4px;
+}
+.right { float:right; }
+@media only screen and (max-width: 768px){
+
+.style-form-input { width:100%; }
+}
+
+.style-form-input.full { 
+    width: 500px;
+    max-width: 100%;
+}
+input,
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    font-size: 1em;
+    background-color: #2d2d2d;
+    color: #fff;
+    border-radius: 50px;
+}
+input:focus,
+textarea:focus { outline: 0; }
+input:focus ~ span,
+textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+textarea {
+    width: 100%;
+    min-height: 10em;
+}
+.input-container {
+    width: 650px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+.btn-submit {
+    width: 160px;
+    color: #fff;
+    font-size: 1.2em;    
+    text-align: center;
+    padding: 15px 35px;
+    border-radius: 60px;
+    display: inline-block;
+    background-color: #06bec6;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06), 0 2px 10px 0 rgba(0,0,0,0.07);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    border:none;
+}
+.btn-submit:hover {
+    
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
+    0 1px 1px 0 rgba(0,0,0,0.09);
+}
+@media (max-width: 768px) {
+    
+    .btn-submit {
+        
+    width:100%;
+    float: none;
+    text-align:center;
+    
+    }
+}
+input[type=checkbox] + label {
+color: #ccc;
+font-style: italic;
+} 
+input[type=checkbox]:checked + label {
+color: #f00;
+font-style: normal;
+}

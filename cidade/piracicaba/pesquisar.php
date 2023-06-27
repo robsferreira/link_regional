@@ -17,20 +17,20 @@
   <!---->
     <!-- Inicio Menu -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<a class="navbar-brand" href="#">LINK REGIONAL</a>
+<a class="navbar-brand" href="#"><img src="imagens/logo-site.png" alt="Link Regional" width="30" height="24"></a>
   
   <!--
   <a class="navbar-brand" href="#">Navbar</a>
 -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse d-flex justify-content-end" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-2">
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index_admin.php">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contato</a>
@@ -51,11 +51,10 @@
     </ul>
     <!--<form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-      <button name="SendPesqClient" type="submit" value="Pesquisar" class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
     </form>-->
   </div>
 </nav>
-
     <!-- Fim Menu -->
     <h1>Pesquisa Cliente</h1>
 

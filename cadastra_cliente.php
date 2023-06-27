@@ -24,11 +24,11 @@
   <!--
   <a class="navbar-brand" href="#">Navbar</a>
 -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse d-flex justify-content-end" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-2">
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
       </li>
@@ -66,7 +66,6 @@
             unset($_SESSION['msg']);
         }    
     ?>
-
     <form method="post" action="processa_cliente.php">
         <label>Nome: </label>
         <input type="text" name="nome" placeholder="Digite o nome completo" ><br /><br />

@@ -118,6 +118,7 @@ if(count($resultados)){
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
 </div>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
