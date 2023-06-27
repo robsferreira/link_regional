@@ -35,7 +35,7 @@
   <div class="collapse navbar-collapse d-flex justify-content-end" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-2">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="index_admin.php">Home <span class="sr-only">(página atual)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contato</a>
@@ -71,62 +71,57 @@
         }    
     ?>
 
-    <div id="formulario">
-    <form method="POST" action="proc_edit_cliente.php">
+    <form method="post" action="proc_edit_cliente.php">
         <label>Nome: </label>
         <input type="hidden" name="id" 
             value="<?php echo $row_cliente['id']; ?>">
 
         <input type="text" name="nome" placeholder="Digite o nome completo" 
-            value="<?php echo $row_cliente['nome']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['nome'])){echo $row_cliente['nome'];}else{echo "";}?>"><br /><br />
 
         <label>Nome da Empresa: </label>
         <input type="text" name="nempresa" placeholder="Digite o nome da Empresa"
-            value="<?php echo $row_cliente['nempresa']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['nempresa'])){echo $row_cliente['nempresa'];}else{echo "";}?>"><br /><br />
 
         <label>CPF: </label>
         <input type="text" name="cpf" placeholder="Digite o CPF"
-            value="<?php echo $row_cliente['cpf']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['cpf'])){echo $row_cliente['cpf'];}else{echo "";}?>"><br /><br />
         
-        <label>E-mail: </label>
-        <input type="text" name="email" placeholder="Digite o seu melhor E-mail"
-            value="<?php echo $row_cliente['email']; ?>"><br /><br />
 
         <label>Site: </label>
         <input type="text" name="site" placeholder="Tem Site? Coloca o endereço"
-            value="<?php echo $row_cliente['site']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['site'])){echo $row_cliente['site'];}else{echo "";}?>"><br /><br />
 
         <label>Contato: </label>
         <input type="text" name="contato" placeholder="Digite o seu contato"
-            value="<?php echo $row_cliente['contato']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['contato'])){echo $row_cliente['contato'];}else{echo "";}?>"><br /><br />
 
         <label>Endereço: </label>
         <input type="text" name="endereco" placeholder="Digite seu endereço"
-            value="<?php echo $row_cliente['endereco']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['endereco'])){echo $row_cliente['endereco'];}else{echo "";}?>"><br /><br />
 
         <label>Cidade: </label>
         <input type="text" name="cidade" placeholder="Informe a sua Cidade"
-            value="<?php echo $row_cliente['cidade']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['cidade'])){echo $row_cliente['cidade'];}else{echo "";}?>"><br /><br />
 
         <label>Estado: </label>
         <input type="text" name="estado" placeholder="Informe o seu Estado"
-            value="<?php echo $row_cliente['estado']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['estado'])){echo $row_cliente['estado'];}else{echo "";}?>"><br /><br />
 
         <label>Categoria: </label>
         <input type="text" name="categoria" placeholder="Digite a categoria do Serviço ex: Serviço"
-            value="<?php echo $row_cliente['categoria']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['categoria'])){echo $row_cliente['categoria'];}else{echo "";}?>"><br /><br />
         
         <label>Classificação: </label>
         <input type="text" name="classificacao" placeholder="Digite uma pontuação ex:0.0 até 10.0"
-            value="<?php echo $row_cliente['classificacao']; ?>"><br /><br />
+            value="<?php if(!empty($row_cliente['classificacao'])){echo $row_cliente['classificacao'];}else{echo "";}?>"><br /><br />
 
-        <label>Nome da imagem do Cartão: </label>
+       <!-- <label>Nome da imagem do Cartão: </label>
         <input type="text" name="imagem_cartao" placeholder="Nome do arquivo da imagem Formato jpg"
-            value="<?php echo $row_cliente['imagem_cartao']; ?>"><br /><br />
+            value="<?php echo $row_cliente['imagem_cartao']; ?>"><br /><br />-->
 
             <button type="submit"> Editar </button>
     </form>
-      </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

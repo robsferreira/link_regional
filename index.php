@@ -1,51 +1,64 @@
 <?php
   include_once("conexao.php");
+  session_start();
+  $con = new PDO("mysql:host=localhost;dbname=linkregional", "root", "");
+  $sth = $con->prepare('SELECT * FROM `cliente` WHERE `nempresa` IS NOT NULL');
+  $sth->execute();
+  $resultados = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt=br">
 <head>
+  <style>
+    .swiper-slide{
+      display: flex;
+      justify-content: center;
+      padding-left: 100px;
+      padding-top: 40px;
+    }
+  </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/personalizado.css">
+    <link rel="stylesheet" href="package/swiper-bundle.css">
+    <link rel="stylesheet" href="card-style.css">
+    <script src="https://kit.fontawesome.com/a41fc8aa0d.js" crossorigin="anonymous"></script>
     <title>Link Regional</title>
 </head>
 <body>
   
   <!---->
-    <!-- Inicio Menu -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-<a class="navbar-brand" href="#">LINK REGIONAL</a>
-  
-  <!--
-  <a class="navbar-brand" href="#">Navbar</a>
--->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+ <!-- Inicio Menu -->
+<nav class="navbar navbar-light bg-light personalizedsize">
+  <div class="brand_link"><a class="navbar-brand" href="#">Link Regional</a></div>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse d-flex justify-content-end" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav mr-2">
+<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="index_admin.php">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contato</a>
       </li>
-      <li class="nav-item dropdown">
+      <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="cadastra_cliente.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Área Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="cadastra_cliente.php">Cadastra Novo Cliente</a>
           <a class="dropdown-item" href="listar.php">Lista de Clientes</a>
-      <!--<a class="dropdown-item" href="listar.php">Listar Clientes</a> -->
-        </div>
+      <a class="dropdown-item" href="listar.php">Listar Clientes</a> 
+        </div>-->
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="pesquisar.php">Pesquisar</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link active" href="login.php">Login</a>
       </li>
     </ul>
     <!--<form class="form-inline my-2 my-lg-0">
@@ -54,91 +67,86 @@
     </form>-->
   </div>
 </nav>
-
     <!-- Fim Menu -->
-    <!-- Inicio Carrossel -->
-    <main>
-    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
-
-    <div id="carouselExampleIndicators" class="carousel slide">
-          
-            <div class="carousel-indicators">
-                <?php 
-                    $contole_ativo = 2;
-                    $controle_num_slide = 1;
-                    $result_carousel = "SELECT * FROM cliente ORDER BY id ASC";
-                    $resultado_carousel = mysqli_query($conn, $result_carousel);
-                    while($row_carousel = mysqli_fetch_assoc($resultado_carousel)){ 
-                      if($contole_ativo == 2){ ?>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button><?php
-                    $contole_ativo = 1;
-                      }else { ?>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $controle_num_slide; ?>" aria-label="Slide 2"></button><?php
-                    $controle_num_slide++;
-                      }
-                        
-                    }
-                  ?>
-            
-          </div>
+<?php
+if(!empty($_SESSION['msg']))
+{
   
-    <?php 
-      $controle_ativo = 2;
-      $result_carousel = "SELECT * FROM cliente ORDER BY id   ASC";
-      $resultado_carousel = mysqli_query($conn, $result_carousel);
-      while($row_carousel = mysqli_fetch_assoc($resultado_carousel)){ 
-        if($controle_ativo == 2){ ?>
-      <div class="carousel-inner">
-      <div class="carousel-item active">
-      <img src="imagens/carousel/<?php echo $row_carousel['imagem_cartao']; ?>" class="d-block w-100" alt="<?php echo $row_carousel['nempresa']; ?>">
-      </div><?php
-      $controle_ativo = 1;
-        }else { ?>
-      <div class="carousel-item">
-      <img src="imagens/carousel/<?php echo $row_carousel['imagem_cartao']; ?>" class="d-block w-100" alt="<?php echo $row_carousel['nempresa']; ?>">
-      </div><?php
-        }
-          
-      }
-    ?> 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+echo"<div class='alert alert-info' role='alert'>".$_SESSION['msg']." <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+  </button></div>";
+  unset($_SESSION['msg']);
+  
+}
+?>
+<div class="swiper mySwiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+<?php 
+if(count($resultados)){
+  foreach ($resultados as $Resultado) {
+    ?><div class="swiper-slide">
+            <div class="card-container">
+              <div class="img-top"><img src="imagens/back_card-alt.png" alt="image header" class="img-top"></div>
+              <div class="avatar-holder"><img src="imagens/profile-pic-alt.png" alt="user image" class="img-user"></div>
+              <div class="name">
+              <h2><?php echo $Resultado['nempresa'];?></h2>
+              <h4><?php echo $Resultado['categoria'];?></h4>
+              </div>
+              <div class="ranking">
+               <i class="fa-solid fa-star"></i>
+                <h4><?php echo $Resultado['classificacao'];?>/<small>5.0<small></h4><spam class="ranking-icon"></spam>
+                </div>
+              <div class="info">
+                <table>
+                <tr><td><i class="fa-solid fa-phone"></i></td><td><a href="#"><?php echo $Resultado['contato'];?><a></td></tr>
+                <tr><td><i class="fa-solid fa-envelope"></i></td><td><a href="#"><?php echo $Resultado['email'];?><a></td></tr>
+                <tr><td><i class="fa-sharp fa-solid fa-location-dot"></i></td><td><a href="#"><?php echo $Resultado['endereco'].'. '.$Resultado['cidade'].' - '.$Resultado['estado'];?><a></td></tr>
+                </table>
+              </div>
+            </div>
+      </div><?php 
+    }
+}else{
+  ?>
+  <label>Não encontrado</label>
+  <?php
+}
+?>
+  </div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      },
+  });
+</script>
+
     <!-- Fim Carrossel -->
-
-    <h1>Pesquisa Cliente</h1>
-    <div id="formulario">
-    <form method="POST" action="">
-        <label>Nome: </label>
-        <input type="text" name="nome" placeholder="Digite o nome"><br /><br />
-      
-        <input name="SendPesqClient" type="submit">
-    </form><br /><br /></div>
-
-    <?php
-      $SendPesqClient = filter_input(INPUT_POST, 'SendPesqClient', FILTER_SANITIZE_STRING);
-      if($SendPesqClient) {
-        $nempresa = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-        $result_cliente = "SELECT * FROM cliente WHERE nempresa LIKE '%$nempresa%'";
-        $resultado_cliente = mysqli_query($conn, $result_cliente);
-        while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) {
-          echo "########->ID: " . $row_cliente['id'] . "<br>";
-          echo "########->Nome da Empresa: " . $row_cliente['nempresa'] . "<br>";
-          echo "########->Contato: " . $row_cliente['contato'] . "<br>";
-          
-          echo "########-><a href='edit_cliente.php?id=" . $row_cliente['id'] . "'>Editar</a><br/>";
-          echo "########-><a href='proc_apagar_cliente.php?id=" . $row_cliente['id'] . "'>Apagar</a><br/><hr>";
-        }
-      }
-    ?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -150,3 +158,4 @@
     
 </body>
 </html>
+ 

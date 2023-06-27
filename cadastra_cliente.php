@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<a class="navbar-brand" href="#">LINK REGIONAL</a>
+<a class="navbar-brand" href="#">Link Regional</a>
   
   <!--
   <a class="navbar-brand" href="#">Navbar</a>
@@ -35,15 +35,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contato</a>
       </li>
-      <li class="nav-item dropdown">
+     <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="cadastra_cliente.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Área Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="cadastra_cliente.php">Cadastra Novo Cliente</a>
           <a class="dropdown-item" href="listar.php">Lista de Clientes</a>
-      <!--<a class="dropdown-item" href="listar.php">Listar Clientes</a> -->
-        </div>
+      <a class="dropdown-item" href="listar.php">Listar Clientes</a> 
+        </div>-->
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="pesquisar.php">Pesquisar</a>
@@ -57,66 +57,33 @@
 </nav>
 
     <!-- Fim Menu -->
-    <h1>Cadastro de Novo Cliente</h1>
+    <h1>Cadastro de usuário</h1>
 
     <?php
         if(isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
+            echo"<div class='alert alert-info' role='alert'>".$_SESSION['msg']." <button type='button' class='btn-close' data-dismiss='alert' aria-label='Close'>
+  </button></div>";
             unset($_SESSION['msg']);
         }    
     ?>
-    <div id="formulario">
-      <form method="POST" action="processa.php">
-          <div class="style-form-input full">
-            <input type="text" name="nome" placeholder="Nome completo:" required><br /><br />
-          </div>
-          
-          <div class="style-form-input full">
-            <input type="text" name="nempresa" placeholder="Nome da Empresa:" required><br /><br />
-          </div>
+    <form method="post" action="processa_cliente.php">
+        <label>Nome: </label>
+        <input type="text" name="nome" placeholder="Digite o nome completo" ><br /><br />
 
-          <div class="style-form-input full">
-            <input type="text" name="cpf" placeholder="CPF:" required><br /><br />
-          </div>
-          
-          <div class="style-form-input full">
-            <input type="text" name="email" placeholder="E-mail:" required><br /><br />
-          </div>
+        <label>E-mail: </label>
+        <input type="email" name="email" placeholder="Digite o seu melhor E-mail" ><br /><br />
 
-          <div class="style-form-input full">
-            <input type="text" name="site" placeholder="Site:"><br /><br />
-          </div>
+        <label>Senha: </label>
+        <input type="password" name="senha" placeholder="Crie uma senha" ><br /><br />
 
-          <div class="style-form-input full">
-            <input type="text" name="contato" placeholder="Contato:" required><br /><br />
-          </div>
+        <!-- 
+        <label>Nome da imagem do Cartão: </label>
+        <input type="text" name="imagem_cartao" placeholder="Nome do arquivo da imagem Formato jpg"><br /><br />
+        -->
 
-          <div class="style-form-input full">
-            <input type="text" name="endereco" placeholder="Endereço:"><br /><br />
-          </div>
-
-          <div class="style-form-input full">
-            <input type="text" name="cidade" placeholder="Cidade:"><br /><br />
-          </div>
-
-          <div class="style-form-input full">
-            <input type="text" name="estado" placeholder="Estado:"><br /><br />
-          </div>
-
-          <div class="style-form-input full">
-            <input type="text" name="categoria" placeholder="Tipo de serviço:"><br /><br />
-          </div>
-
-          <div class="style-form-input full">
-            <input type="text" name="classificacao" placeholder="Classificação 0.0 até 10.0:"><br /><br />
-          </div>
-          <!-- 
-          <label>Nome da imagem do Cartão: </label>
-          <input type="text" name="imagem_cartao" placeholder="Nome do arquivo da imagem Formato jpg"><br /><br />
-          -->
-            <button type="submit"> Cadastrar </button>
-      </form>
-    </div>
+        <input type="submit" value="cadastrar" name="btnCadUsuario"><br><br>
+        <h4>Já possui uma conta? Faça login <a href="login.php">aqui.</a></h4>
+    </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
